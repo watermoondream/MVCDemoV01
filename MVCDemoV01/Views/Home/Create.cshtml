@@ -1,0 +1,102 @@
+﻿@model MVCDemoV01.Models.Customers
+@{
+    ViewBag.Title = "客戶資料新增";
+}
+
+<h2>客戶資料新增</h2>
+<form method="post" action="@Url.Action("Create")">
+
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.CustomerID)</span>
+            <div class="col-md-10">
+                <input type="text" id="CustomerID" name="CustomerID" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.CompanyName)</span>
+            <div class="col-md-10">
+                <input type="text" id="CompanyName" name="CompanyName" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.ContactName)</span>
+            <div class="col-md-10">
+                <input type="text" id="ContactName" name="ContactName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.ContactTitle)</span>
+            <div class="col-md-10">
+                <input type="text" id="ContactTitle" name="ContactTitle" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Country)</span>
+            <div class="col-md-10">
+                <input type="text" id="Country" name="Country" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.City)</span>
+            <div class="col-md-10">
+                <input type="text" id="City" name="City" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Region)</span>
+            <div class="col-md-10">
+                <input type="text" id="Region" name="Region" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Address)</span>
+            <div class="col-md-10">
+                <input type="text" id="Address" name="Address" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.PostalCode)</span>
+            <div class="col-md-10">
+                <input type="text" id="PostalCode" name="PostalCode" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Phone)</span>
+            <div class="col-md-10">
+                <input type="text" id="Phone" name="Phone" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Fax)</span>
+            <div class="col-md-10">
+                <input type="text" id="Fax" name="Fax" class="form-control" />
+            </div>
+        </div>
+ 
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("返回列表", "Index")
+</div>
+
+
