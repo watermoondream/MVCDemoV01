@@ -11,6 +11,8 @@ namespace MVCDemoV01.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Customers
     {
@@ -20,17 +22,42 @@ namespace MVCDemoV01.Models
             this.Orders = new HashSet<Orders>();
             this.CustomerDemographics = new HashSet<CustomerDemographics>();
         }
-    
+        
+        [DisplayName("客戶編號")]
+        [Required]    
         public string CustomerID { get; set; }
+
+        [DisplayName("公司名稱")]
+        [Required]
         public string CompanyName { get; set; }
+
+        [DisplayName("聯絡人姓名")]
         public string ContactName { get; set; }
+
+        [DisplayName("聯絡人職稱")]
         public string ContactTitle { get; set; }
+
+        [DisplayName("地址")]
         public string Address { get; set; }
+
+        [DisplayName("城市")]
         public string City { get; set; }
+
+        [DisplayName("區")]
         public string Region { get; set; }
+
+        [DisplayName("郵遞區號")]
         public string PostalCode { get; set; }
+
+        [DisplayName("國家")]
         public string Country { get; set; }
+
+        [DisplayName("電話")]
+        [Phone]
         public string Phone { get; set; }
+
+        [DisplayName("傳真")]
+        [Phone]
         public string Fax { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
