@@ -35,12 +35,26 @@ namespace MVCDemoV01.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET: Delete
         public ActionResult Delete(string CustomerID)
         {
             var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
             db.Customers.Remove(cust);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        //GET: Detail
+        public ActionResult Detail(string CustomerID)
+        {
+
+            var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
+            if (cust == null)
+            {
+                ViewBag.Message = "找不到該筆客戶資料";
+                return View("Detail");
+            }
+            return View("Detail",cust);
         }
 
     }

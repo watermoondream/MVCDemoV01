@@ -1,0 +1,95 @@
+﻿@model MVCDemoV01.Models.Customers
+@{
+    ViewBag.Title = "客戶資料明細";
+}
+
+<h2>客戶資料明細</h2>
+<form>
+    <div id="showMessage" class="text-danger">@ViewBag.Message</div>
+    <br />
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.CustomerID)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.CustomerID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.CompanyName)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.CompanyName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.ContactName)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ContactName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.ContactTitle)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.ContactTitle)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Country)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Country)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.City)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.City)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Region)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Region)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Address)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.PostalCode)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PostalCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Phone)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Phone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Fax)</span>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Fax)
+            </div>
+        </div>
+    </div>
+</form>
+    <div>
+        @Html.ActionLink("返回列表", "Index")
+    </div>
+
+
