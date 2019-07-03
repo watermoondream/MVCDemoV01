@@ -34,5 +34,14 @@ namespace MVCDemoV01.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(string CustomerID)
+        {
+            var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
+            db.Customers.Remove(cust);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

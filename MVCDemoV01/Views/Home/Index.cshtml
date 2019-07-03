@@ -60,6 +60,7 @@
                 @Html.DisplayFor(modelItem => item.Fax)
             </td>
             <td>
+                <a href="@Url.Action("Delete")?CustomerID=@item.CustomerID" class="btn btn-danger" onclick="return confirm('是否確認刪除');">刪除</a>
             </td>
         </tr>
     }
