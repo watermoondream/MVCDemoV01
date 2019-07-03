@@ -7,7 +7,7 @@
 <form method="post" action="@Url.Action("Edit")">
 
     <div class="form-horizontal">
-        <div id="showMessage" class="text-danger">@ViewBag.Message</div>
+        <div id="divMessage" class="text-danger">@ViewBag.Message</div>
         <hr />
 
         <div class="form-group">
@@ -79,7 +79,6 @@
             <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Phone)</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -87,7 +86,6 @@
             <span class="control-label col-md-2">@Html.DisplayNameFor(model => model.Fax)</span>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
             </div>
         </div>
 

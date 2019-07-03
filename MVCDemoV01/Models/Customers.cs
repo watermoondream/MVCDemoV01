@@ -53,11 +53,9 @@ namespace MVCDemoV01.Models
         public string Country { get; set; }
 
         [DisplayName("電話")]
-        [Phone]
         public string Phone { get; set; }
 
         [DisplayName("傳真")]
-        [Phone]
         public string Fax { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

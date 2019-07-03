@@ -28,10 +28,55 @@ namespace MVCDemoV01.Controllers
 
         //POST:Create
         [HttpPost]
-        public ActionResult Create(Customers cust)
+        public ActionResult Create(string CustomerID, string CompanyName, string ContactName, string ContactTitle, string Country, string City, string Region, string Address, string PostalCode, string Phone, string Fax)
         {
+            bool isError = false;
+            if (string.IsNullOrWhiteSpace(CustomerID))
+            {
+                ModelState.AddModelError("CustomerID","客戶編號為必填");
+                isError = true;
+            }
+            else
+            {
+                ModelState.AddModelError("CustomerID", "");
+            }
+
+            if (string.IsNullOrWhiteSpace(CompanyName))
+            {
+                ModelState.AddModelError("CompanyName", "公司名稱為必填");
+                isError = true;
+            }
+            else
+            {
+                ModelState.AddModelError("CompanyName", "");
+            }
+
+            if (isError)
+            {
+                return View();
+            }
+            Customers cust = new Customers();
+            cust.CustomerID = CustomerID;
+            cust.CompanyName = CompanyName;
+            cust.ContactName = ContactName;
+            cust.ContactTitle = ContactTitle;
+            cust.Country = Country;
+            cust.City = City;
+            cust.Region = Region;
+            cust.Address = Address;
+            cust.PostalCode = PostalCode;
+            cust.Phone = Phone;
+            cust.Fax = Fax;
             db.Customers.Add(cust);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "新增資料發生錯誤："+ex.Message;
+                return View();
+            }
             return RedirectToAction("Index");
         }
 
@@ -40,7 +85,15 @@ namespace MVCDemoV01.Controllers
         {
             var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
             db.Customers.Remove(cust);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "刪除資料發生錯誤：" + ex.Message;
+                return View();
+            }
             return RedirectToAction("Index");
         }
 
@@ -72,6 +125,20 @@ namespace MVCDemoV01.Controllers
         [HttpPost]
         public ActionResult Edit(string CustomerID, string CompanyName, string ContactName, string ContactTitle, string Country, string City, string Region, string Address, string PostalCode, string Phone, string Fax)
         {
+            bool isError = false;
+            if (string.IsNullOrWhiteSpace(CompanyName))
+            {
+                ModelState.AddModelError("CompanyName", "公司名稱為必填");
+                isError = true;
+            }
+            else
+            {
+                ModelState.AddModelError("CompanyName", "");
+            }
+            if (isError)
+            {
+                return View();
+            }
             var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
             if (cust == null)
             {
@@ -88,7 +155,16 @@ namespace MVCDemoV01.Controllers
             cust.PostalCode = PostalCode;
             cust.Phone = Phone;
             cust.Fax = Fax;
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "修改資料發生錯誤：" + ex.Message;
+                return View();
+            }
+
             return RedirectToAction("Index");
         }
 
