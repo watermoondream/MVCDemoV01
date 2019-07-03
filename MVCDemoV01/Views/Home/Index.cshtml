@@ -61,6 +61,7 @@
             </td>
             <td style="white-space:nowrap;">
                 <a href="@Url.Action("Detail")?CustomerID=@item.CustomerID" class="btn btn-info">明細</a> 
+                <a href="@Url.Action("Edit")?CustomerID=@item.CustomerID" class="btn btn-info">修改</a>
                 <a href="@Url.Action("Delete")?CustomerID=@item.CustomerID" class="btn btn-danger" onclick="return confirm('是否確認刪除');">刪除</a>
             </td>
         </tr>

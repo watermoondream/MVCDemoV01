@@ -57,5 +57,41 @@ namespace MVCDemoV01.Controllers
             return View("Detail",cust);
         }
 
+        //GET: Edit
+        public ActionResult Edit(string CustomerID)
+        {
+            var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
+            if (cust == null)
+            {
+                ViewBag.Message = "找不到該筆客戶資料";
+                return View("Edit");
+            }
+            return View("Edit", cust);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(string CustomerID, string CompanyName, string ContactName, string ContactTitle, string Country, string City, string Region, string Address, string PostalCode, string Phone, string Fax)
+        {
+            var cust = db.Customers.Where(m => m.CustomerID == CustomerID).FirstOrDefault();
+            if (cust == null)
+            {
+                ViewBag.Message = "找不到該筆客戶資料";
+                return View("Edit");
+            }
+            cust.CompanyName = CompanyName;
+            cust.ContactName = ContactName;
+            cust.ContactTitle = ContactTitle;
+            cust.Country = Country;
+            cust.City = City;
+            cust.Region = Region;
+            cust.Address = Address;
+            cust.PostalCode = PostalCode;
+            cust.Phone = Phone;
+            cust.Fax = Fax;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
