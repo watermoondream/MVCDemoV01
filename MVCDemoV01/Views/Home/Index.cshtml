@@ -1,10 +1,12 @@
-﻿
-@model IEnumerable<MVCDemoV01.Models.Customers>
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<MVCDemoV01.Models.Customers>
 
 @{
     ViewBag.Title = "客戶資料列表";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet">
 <h2>客戶資料列表</h2>
 <p>
     @Html.ActionLink("客戶資料新增", "Create")
@@ -12,25 +14,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CustomerID)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CustomerID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CompanyName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactName)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ContactName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactTitle)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ContactTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Country)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Country)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fax)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Fax)
         </th>
         <th></th>
     </tr>
@@ -68,4 +70,5 @@
     }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
 

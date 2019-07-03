@@ -53,3 +53,8 @@ D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\EntityFramework.SqlServer.dll
 D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\EntityFramework.xml
 D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\EntityFramework.SqlServer.xml
 D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\zh-Hant\EntityFramework.resources.dll
+D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\PagedList.dll
+D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\PagedList.Mvc.dll
+D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\PagedList.xml
+D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\PagedList.Mvc.xml
+D:\GitRepository\MVCDemoV01\MVCDemoV01\bin\zh-Hant\EntityFramework.SqlServer.resources.dll

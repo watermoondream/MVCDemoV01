@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCDemoV01.Models;
+using PagedList;
 
 
 namespace MVCDemoV01.Controllers
@@ -12,12 +13,15 @@ namespace MVCDemoV01.Controllers
     public class HomeController : Controller
     {
         northwindEntities db = new northwindEntities();
+        int pageSize = 20;
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var customers = db.Customers.ToList();           
-            return View("Index",customers);
+            int currentPage = page < 1 ? 1 : page;
+            var customers = db.Customers.OrderBy(m=>m.CustomerID).ToList();
+            var result = customers.ToPagedList(currentPage, pageSize);
+            return View("Index",result);
         }
 
         //GET: Create
